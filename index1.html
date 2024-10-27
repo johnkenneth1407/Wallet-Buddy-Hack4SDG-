@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://res.cloudinary.com/dwlineaj5/image/upload/v1729770772/Screenshot_2024-10-23_194404_y9kgdo.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="sectionMainPage">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/dwlineaj5/image/upload/v1729770772/Screenshot_2024-10-23_194404_y9kgdo.png" class="logo mb-3 mt-4" width="120" alt="Wallet Buddy Logo" />
+                <span class="navbar-title ml-3">Wallet Buddy</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link nav-item" href="#sectionMainPage">Home</a>
+                    <a class="nav-link nav-item" href="#" onclick="display('sectionSavings')">Automated Savings</a>
+                    <a class="nav-link nav-item" href="#" onclick="display('sectionBudgetPlan')">Budget Plan</a>
+                    <a class="nav-link nav-item" href="#" onclick="display('sectionEssentials')">Essential Finance skill</a>
+                    <a class="nav-link nav-item" href="#" onclick="display('sectionDebt')">Debt Management Calculator</a>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- jQuery, Popper.js, and Bootstrap JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- Custom JavaScript to handle click outside the navbar -->
+        <script>
+            $(document).ready(function() {
+                // Close the navbar when clicking outside of it
+                $(document).on('click', function(e) {
+                    var target = $(e.target);
+                    if (!target.closest('.navbar').length && $('.navbar-collapse').hasClass('show')) {
+                        $('.navbar-collapse').collapse('hide');
+                    }
+                });
+            });
+        </script>
+
+
+        <div class="container-fluid mtop">
+            <div class="row">
+                <div class="col-12 d-none d-sm-block dark-bg mb-4">
+                    <div class="d-flex flex-row justify-content-between pl-5 pr-5 pt-3 pb-3">
+                        <div class="d-flex flex-column">
+                            <a class="fixed-items" href="#" onclick="display('sectionExpense')">Expense Tracker</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionStockMarket')">Stock Market Basics</a>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <a class="fixed-items" href="#" onclick="display('sectionStrategies')">Trading Strategies</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionInvestments')">Investing Options</a>
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            <a class="fixed-items" href="#" onclick="display('sectionFinanceGoal')">Financial Goal</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionLearn')">Learn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-sm-none">
+                    <div class="col-12 d-flex flex-row justify-content-between dark-bg pl-3 pr-3 pt-3 pb-3 mb-4">
+                        <div class="d-flex flex-column">
+                            <a class="fixed-items" href="#" onclick="display('sectionExpense')">Expense Tracker</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionStockMarket')">Stock Market Basics</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionStrategies')">Trading Strategies</a>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <a class="fixed-items" href="#" onclick="display('sectionInvestments')">Investing Options</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionFinanceGoal')">Financial Goal</a>
+                            <a class="fixed-items" href="#" onclick="display('sectionLearn')">Learn</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallet Buddy Basics -->
+                <div class="col-12 bg-light" id="Wallet-buddy-basics">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Wallet Buddy Basics</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="walletBuddyBasicsChart" class="w-100" height="320" width="350"></canvas>
+                            <p class="para-common">Understanding how to allocate your income is crucial. This chart shows a recommended breakdown for financial stability and growth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Debt Management -->
+                <div class="col-12 bg-light" id="Wallet-buddy-Dept-Management">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Debt Management</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="walletBuddyDebtManagementChart" class="w-100" height="320" width="400"></canvas>
+                            <p class="para-common">Prioritize paying off high-interest debt first, then focus on low-interest debt. The goal is to move towards a debt-free life for financial freedom.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Credit Management -->
+                <div class="col-12 bg-light" id="Wallet-buddy-Credit">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Credit Management</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="walletBuddyCreditManagementChart" class="w-100" height="350" width="350"></canvas>
+                            <p class="para-common">Your credit score is crucial for future loans and financial opportunities. Understand the factors that affect it and how to improve your score.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Understanding the Market -->
+                <div class="col-12 bg-light" id="Wallet-buddy-Understanding">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Understanding the Market</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="walletBuddyUnderstandingMarketChart" class="w-100" height="150" width="375"></canvas>
+                            <p class="para-common">Markets fluctuate between bull (rising prices) and bear (falling prices) conditions. Understanding these cycles helps in making informed investment decisions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Investing -->
+                <div class="col-12 bg-light" id="Wallet-buddy-Invest">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Smart Investing</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="walletBuddyInvestingChart" class="w-100" height="200" width="350"></canvas>
+                            <p class="para-common">Diversifying your investments across different asset classes can help balance risk and potential returns.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 bg-light" id="Wallet-buddy-Savings-Spending">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Savings vs. Spending</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="savingsSpendingChart" class="w-100" height="320" width="350"></canvas>
+                            <p class="para-common">This chart shows the ratio of your savings compared to your spending. Aim to increase your savings rate over time for better financial health.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 bg-light" id="Wallet-buddy-Investment-Diversification">
+                    <div class="shadow-lg mb-5 Wallet-buddy-basics">
+                        <h1 class="financial-basics-heading text-white bg-primary">Investment Portfolio Diversification</h1>
+                        <div class="p-3 bg-white text-center chart-container">
+                            <canvas id="investmentDiversificationChart" class="w-100" height="320" width="350"></canvas>
+                            <p class="para-common">Diversifying your investments can help manage risk and optimize returns. This chart shows a diversified portfolio across different asset classes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section pt-5 pb-5 bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="https://res.cloudinary.com/dwlineaj5/image/upload/v1729770772/Screenshot_2024-10-23_194404_y9kgdo.png" class="logo mb-3" width="120" alt="Wallet Buddy Logo" />
+                        <h3 class="footer-section-mail-id mb-3">walletbuddy@gmail.com</h3>
+
+                        <div class="social-icons d-flex justify-content-center mb-3">
+                            <a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" class="me-3 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" class="me-3 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com" aria-label="X" target="_blank" class="me-3 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/917207843072" aria-label="WhatsApp" target="_blank" class="me-3 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <p>&copy; 2024 Wallet Buddy | All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="sectionExpense">
+        <div class="container mt-5" id="expense">
+            <h2 class="text-center text-white bg-primary Expense-tracker-heading mb-5">Daily Expense Tracker</h2>
+            <div class="form-group">
+                <input type="text" id="expenseName" class="form-control" placeholder="Expense Name">
+            </div>
+            <div class="form-group">
+                <input type="number" id="expenseAmount" class="form-control" placeholder="Amount">
+            </div>
+            <button onclick="addExpense()" class="btn btn-success btn-block">Add Expense</button>
+            <button onclick="clearExpenses()" class="btn btn-danger btn-block mt-3">Clear Expenses</button>
+            <div class="text-center">
+                <button class="btn btn-secondary mt-4" onclick="display('sectionMainPage')">Back</button><!-- Clear button added -->
+            </div>
+            <div class="mt-5 chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div id="sectionFinanceGoal">
+        <div class="container mt-5">
+            <h2 class="text-center text-white bg-primary Expense-tracker-heading mb-5">Financial Goal Calculator</h2>
+
+            <div class="form-group">
+                <input type="text" id="goalName" class="form-control" placeholder="Goal Name">
+            </div>
+            <div class="form-group">
+                <input type="number" id="goalAmount" class="form-control" placeholder="Goal Amount">
+            </div>
+            <div class="form-group">
+                <input type="number" id="goalSavings" class="form-control" placeholder="Current Savings">
+            </div>
+            <div class="form-group">
+                <input type="number" id="goalMonthlySavings" class="form-control" placeholder="Monthly Savings">
+            </div>
+
+            <button onclick="calculateGoal()" class="btn btn-primary btn-block">Calculate</button>
+
+            <div id="goalResult" class="mt-5 text-center"></div>
+            <div class="text-center">
+                <button class="btn btn-secondary mt-4" onclick="display('sectionMainPage')">Back</button><!-- Clear button added -->
+            </div>
+        </div>
+
+    </div>
+    <div id="sectionInvestments">
+        <div class="container mt-5">
+            <h1 class="display-4 text-center invest-head">Investment Options</h1>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Conservative Fund</h5>
+                            <p class="card-text">Low risk, stable returns</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 40%"></div>
+                            </div>
+                            <p class="mt-3">Expected Annual Return: 3-5%</p>
+                            <button class="btn btn-primary" onclick="redirectToChart('conservativeChart')">Invest</button>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Balanced Fund</h5>
+                            <p class="card-text">Moderate risk, balanced growth</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" style="width: 60%"></div>
+                            </div>
+                            <p class="mt-3">Expected Annual Return: 6-8%</p>
+                            <button class="btn btn-primary" onclick="redirectToChart('balancedChart')">Invest</button>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Growth Fund</h5>
+                            <p class="card-text">Higher risk, potential for higher returns</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" style="width: 80%"></div>
+                            </div>
+                            <p class="mt-3">Expected Annual Return: 8-12%</p>
+                            <button class="btn btn-primary" onclick="redirectToChart('growthChart')">Invest</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Investment Tips</h5>
+                    <ul class="list-unstyled">
+                        <li>Start early to benefit from compound interest</li>
+                        <li>Diversify your portfolio to spread risk</li>
+                        <li>Regularly review and rebalance your investments</li>
+                        <li>Consider your risk tolerance when choosing funds</li>
+                        <li>Don't panic sell during market downturns</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-secondary mt-4" onclick="display('sectionMainPage')">Back</button><!-- Clear button added -->
+            </div>
+
+            <!-- Pie Charts -->
+            <div id="conservativeChart" class="chart-container mt-5" style="display:none;">
+                <h3>Conservative Fund Allocation</h3>
+                <canvas id="conservativePie"></canvas>
+            </div>
+            <div id="balancedChart" class="chart-container mt-5" style="display:none;">
+                <h3>Balanced Fund Allocation</h3>
+                <canvas id="balancedPie"></canvas>
+            </div>
+            <div id="growthChart" class="chart-container mt-5" style="display:none;">
+                <h3>Growth Fund Allocation</h3>
+                <canvas id="growthPie"></canvas>
+            </div>
+        </div>
+    </div>
+    <div id="sectionStrategies">
+        <!-- Main Section: Explore Different Trading Strategies -->
+        <div class="container strategy-section">
+            <h2>Explore Different Trading Strategies</h2>
+            <p>Understanding various trading strategies can help you make informed decisions in the stock market. Click on each strategy to learn more!</p>
+            <div class="row">
+                <div class="col-md-12 strategy-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Value Investing</h5>
+                            <p class="card-text">Find undervalued stocks with strong fundamentals.</p>
+                            <a onclick="display('sectionvalue-investing')" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 strategy-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Growth Investing</h5>
+                            <p class="card-text">Focus on companies with high growth potential.</p>
+                            <a onclick="display('sectiongrowth-investing')" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 strategy-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dividend Investing</h5>
+                            <p class="card-text">Invest in stocks that pay regular dividends.</p>
+                            <a onclick="display('sectiondividend-investing')" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 strategy-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Momentum Investing</h5>
+                            <p class="card-text">Capitalize on continuing market trends.</p>
+                            <a onclick="display('sectionmomentum-investing')" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+        </div>
+
+        <!-- Detailed Sections for Each Strategy -->
+
+    </div>
+    <!-- Value Investing Section -->
+    <div class="strategy-detail-section" id="sectionvalue-investing">
+        <h3>Value Investing</h3>
+        <p>Value investing is a strategy where investors seek out stocks that appear to be trading for less than their intrinsic or book value. This approach is based on the belief that the market often overreacts to news, resulting in stock price movements that do not reflect the company’s long-term fundamentals. Value investors aim to profit from this discrepancy by buying undervalued stocks and holding them until the market corrects the undervaluation.</p>
+        <h5>Key Points:</h5>
+        <ul>
+            <li>Focus on stocks that are undervalued relative to their intrinsic value</li>
+            <li>Relies on a thorough analysis of company fundamentals, such as earnings, dividends, and growth prospects</li>
+            <li>Typically involves a long-term investment horizon</li>
+        </ul>
+        <p>Value investing can be less risky compared to other strategies, but it requires patience as it may take time for the market to recognize a stock’s true value.</p>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="display('sectionStrategies')">Back</button>
+        </div>
+    </div>
+    <!-- Momentum Investing Section -->
+    <div class="strategy-detail-section" id="sectionmomentum-investing">
+        <h3>Momentum Investing</h3>
+        <p>Momentum investing is based on the idea that stocks that have performed well in the recent past...</p>
+        <h5>Key Points:</h5>
+        <ul>
+            <li>Focus on stocks with strong recent performance</li>
+            <li>Requires active management and frequent trading</li>
+            <li>Often uses technical analysis tools</li>
+        </ul>
+        <p>Momentum investing can be risky and requires careful timing of buy and sell decisions.</p>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="display('sectionStrategies')">Back</button>
+        </div>
+    </div>
+    <!-- Dividend Investing Section -->
+    <div class="strategy-detail-section" id="sectiondividend-investing">
+        <h3>Dividend Investing</h3>
+        <p>Dividend investing involves purchasing stocks that regularly distribute a portion of the company’s earnings to shareholders in the form of dividends. This strategy is popular among investors seeking a steady income stream from their investments.</p>
+        <h5>Key Points:</h5>
+        <ul>
+            <li>Focus on companies with a history of paying consistent and growing dividends</li>
+            <li>Preferred by income-focused investors and those seeking stability</li>
+            <li>Can provide a hedge against market volatility with regular income</li>
+        </ul>
+        <p>While dividend investing can offer steady income, it may also mean slower capital appreciation compared to growth stocks.</p>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="display('sectionStrategies')">Back</button>
+        </div>
+    </div>
+    <div class="strategy-detail-section" id="sectiongrowth-investing">
+        <h3>Growth Investing</h3>
+        <p>Growth investing focuses on companies that are expected to grow at an above-average rate compared to other companies. Investors typically look for businesses that demonstrate strong revenue and earnings growth.</p>
+        <h5>Key Points:</h5>
+        <ul>
+            <li>Focus on companies with high growth potential</li>
+            <li>Investing in emerging markets and industries</li>
+            <li>Usually involves reinvesting profits rather than receiving dividends</li>
+        </ul>
+        <p>Growth investing can be risky because these companies may not deliver the expected growth, leading to losses.</p>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="display('sectionStrategies')">Back</button>
+        </div>
+    </div>
+    <div id="sectionStockMarket">
+        <div class="container mt-5">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title text-success">What is a Stock?</h2>
+                    <p>A stock represents ownership in a company. When you buy a stock, you're buying a small piece of that company. Companies sell stocks to raise money to grow their business.</p>
+                    <h5 class="text-success">Key Points:</h5>
+                    <ul>
+                        <li>Stocks are also called "shares" or "equity".</li>
+                        <li>When you own a stock, you're a shareholder of the company.</li>
+                        <li>The stock market is where people buy and sell stocks.</li>
+                        <li>Stock prices can go up or down based on how well the company is doing and other factors.</li>
+                    </ul>
+                    <div class="stock-simulation mt-4 p-3 bg-light text-center">
+                        <h5 class="text-success">Interactive Stock Simulation</h5>
+                        <p>Let's simulate how a stock price might change over time. Click the button to see the stock price change!</p>
+                        <div class="current-price mb-3">
+                            Current Price: $<span id="stockPrice">34</span>
+                        </div>
+                        <canvas id="stockChart" width="400" height="200"></canvas> <!-- Chart canvas -->
+                        <button id="changePriceBtn" class="btn btn-success mt-3">Change Price</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" onclick="display('sectionLivestock')">Live Stock Market of Top Companies</button>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+            </div>
+        </div>
+    </div>
+    <div class="financial-modules container" id="sectionLearn">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="module-box">
+                    <h2 class="heading">Stock Market Analysis</h2>
+                    <p class="module-status">Module to be added soon.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="module-box">
+                    <h2 class="heading">Mutual Funds</h2>
+                    <p class="module-status">Module to be added soon.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="module-box">
+                    <h2 class="heading">SIP and Compound Interest</h2>
+                    <p class="module-status">Module to be added soon.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="module-box">
+                    <h2 class="heading">Fixed Deposits</h2>
+                    <p class="module-status">Module to be added soon.</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 mb-4">
+                <div class="module-box">
+                    <h2 class="heading">Portfolio Diversification/Analysis</h2>
+                    <p class="module-status">Module to be added soon.</p>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="sectionLivestock" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Real-Time Stock Prices</h2>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="appleChart"></canvas>
+                    <h5 class="text-center mt-2">Apple (AAPL)</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="microsoftChart"></canvas>
+                    <h5 class="text-center mt-2">Microsoft (MSFT)</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="googleChart"></canvas>
+                    <h5 class="text-center mt-2">Google (GOOGL)</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="teslaChart"></canvas>
+                    <h5 class="text-center mt-2">Tesla (TSLA)</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="facebookChart"></canvas>
+                    <h5 class="text-center mt-2">Meta (META)</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="netflixChart"></canvas>
+                    <h5 class="text-center mt-2">Netflix (NFLX)</h5>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <canvas class="stock-chart" id="amazonChart"></canvas>
+                    <h5 class="text-center mt-2">Amazon (AMZN)</h5>
+                </div>
+            </div>
+
+            <div id="stock-data" class="mt-3"></div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" onclick="display('sectionStockMarket')">Back</button>
+        </div>
+    </div>
+    <div id="sectionSavings">
+        <div class="savings-section saving-body">
+            <div class="saving-container">
+                <h2 class="saving-title">Automated Savings Goals</h2>
+
+                <label class="saving-label" for="income">Monthly Income (₹)</label>
+                <input class="saving-input" type="number" id="income" placeholder="Enter your income" />
+
+                <label class="saving-label" for="duration">Set Duration (Days)</label>
+                <input class="saving-input" type="number" id="duration" placeholder="Enter number of days to save in a month" />
+
+                <div class="saving-goal">
+                    <label class="saving-label" for="emergency">Emergency Fund (%)</label>
+                    <input class="saving-input" type="number" id="emergency" placeholder="e.g., 10" />
+                </div>
+
+                <div class="saving-goal">
+                    <label class="saving-label" for="travel">Travel Fund (%)</label>
+                    <input class="saving-input" type="number" id="travel" placeholder="e.g., 15" />
+                </div>
+
+                <div class="saving-goal">
+                    <label class="saving-label" for="investment">Investment (%)</label>
+                    <input class="saving-input" type="number" id="investment" placeholder="e.g., 20" />
+                </div>
+
+                <button class="saving-button" onclick="calculateSavings()">Calculate Savings</button>
+
+                <div class="saving-total">
+                    <p class="saving-result" id="emergency-result"></p>
+                    <p class="saving-result" id="travel-result"></p>
+                    <p class="saving-result" id="investment-result"></p>
+                    <p class="saving-result" id="total-result"></p>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sectionBudgetPlan">
+        <div class="budget-container">
+            <h1 class="budget-title">Youth Budget Planner Tool</h1>
+            <div class="budget-input-group">
+                <label class="budget-label" for="budget-income">Total Monthly Income (₹):</label>
+                <input class="budget-input" type="number" id="budget-income" placeholder="Enter your monthly income">
+            </div>
+
+            <div class="budget-input-group">
+                <label class="budget-label" for="budget-expenses">Total Monthly Expenses (₹):</label>
+                <input class="budget-input" type="number" id="budget-expenses" placeholder="Enter your monthly expenses">
+            </div>
+
+            <button class="budget-button" id="budget-calculateBtn">Generate Budget Plan</button>
+
+            <div class="budget-results" id="budget-results" style="display: none;">
+                <h2 class="budget-suggestion-title">Suggested Budget Plan</h2>
+                <p class="budget-suggestion" id="budget-suggestion"></p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+        </div>
+
+        <!-- JavaScript should be placed here, just before the closing body tag -->
+        <script>
+            document.getElementById('budget-calculateBtn').addEventListener('click', function() {
+                const income = parseFloat(document.getElementById('budget-income').value);
+                const expenses = parseFloat(document.getElementById('budget-expenses').value);
+
+                if (isNaN(income) || isNaN(expenses) || income <= 0 || expenses < 0) {
+                    alert('Please enter valid income and expenses.');
+                    return;
+                }
+
+                const remaining = income - expenses;
+
+                // Suggested budget allocations
+                const savings = (remaining * 0.20).toFixed(2); // 20% for savings
+                const investment = (remaining * 0.20).toFixed(2); // 20% for investment
+                const travelBudget = (remaining * 0.10).toFixed(2); // 10% for travel
+                const foodBudget = (remaining * 0.15).toFixed(2); // 15% for food
+                const gymBudget = (remaining * 0.15).toFixed(2); // 5% for gym
+                const dailyUsesBudget = (remaining * 0.05).toFixed(2); // 10% for daily uses
+                const discretionarySpending = (remaining - savings - investment - travelBudget - foodBudget - gymBudget - dailyUsesBudget).toFixed(2); // Remaining for other flexible spending
+
+                let suggestion = `Based on your income of ₹${income.toLocaleString('en-IN')} and expenses of ₹${expenses.toLocaleString('en-IN')}:\n`;
+                suggestion += `- Suggested Savings: ₹${savings}\n`;
+                suggestion += `- Suggested Investment: ₹${investment}\n`;
+                suggestion += `- Suggested Travel Budget: ₹${travelBudget}\n`;
+                suggestion += `- Suggested Food Budget: ₹${foodBudget}\n`;
+                suggestion += `- Suggested Gym Budget: ₹${gymBudget}\n`;
+                suggestion += `- Suggested Daily Uses Budget: ₹${dailyUsesBudget}\n`;
+                suggestion += `- Discretionary Spending: ₹${discretionarySpending}\n`;
+
+                document.getElementById('budget-suggestion').innerText = suggestion;
+                document.getElementById('budget-results').style.display = 'block';
+            });
+        </script>
+
+    </div>
+    <div id="sectionEssentials">
+        <div class="EssentialsBody">
+            <div class="container mt-5">
+                <h1 class="EssentialsHeading">Things You Were'nt Taught</h1>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h2>Understanding Loans</h2>
+                        <img src="https://www.investopedia.com/thmb/uH6SPJcXUSnR-5gBnmbKkxaSTBA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TermDefinitions_DebtIssue-fdf52642e900457b866f2b1710958034.jpg" class="EssentialsImage" alt="Understanding Loans">
+                        <p>Loans play a crucial role in financing education for students. Understanding the types of loans available, such as education loans for higher studies and personal loans for emergencies, is vital. Students should know about the eligibility criteria, interest rates—which typically range from 8% to 15% for education loans—and repayment options available, including moratorium periods after course completion.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h2>Tax Basics</h2>
+                        <img src="https://www.investopedia.com/thmb/M-R3c1E0-uio7u6ywnTTcI7-pdo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Taxation_updated2-dfd2ae499d314d05972225d3f743f8aa.png" class="EssentialsImage" alt="Tax Basics">
+                        <p>Understanding tax regulations is essential for financial literacy. Students should familiarize themselves with income tax slabs, which dictate how much tax is owed based on income levels. Additionally, they should learn about deductions available under sections such as 80E for education loans and 80C for various investments, and the importance of filing tax returns on time to avoid penalties.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h2>Managing Debts</h2>
+                        <img src="https://www.investopedia.com/thmb/edghQFIGTDX96bQmdLg4XLIFf24=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/taxes-4188113-1-fb27402db4ac4638875e56eefb0ba00d.jpg" class="EssentialsImage" alt="Managing Debts">
+                        <p>Debt management is critical for financial stability. Students need to understand the difference between good debt, which can help build wealth, and bad debt, which can lead to financial strain. Strategies like the snowball method and avalanche method can help in paying off debts effectively. Moreover, maintaining a good credit score is essential for future loan eligibility.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h2>Stock Market Basics</h2>
+                        <img src="https://www.investopedia.com/thmb/URyVBcDIQxkKB2e6AVRTNoqiRZA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/stockmarket.asp-d2f34bb1e91444069bc6e9b24cfdf6e8.jpg" class="EssentialsImage" alt="Stock Market Basics">
+                        <p>Investing in the stock market can be a lucrative way to grow wealth. Students should learn the basics of stocks, mutual funds, and the importance of diversifying their investments. Familiarity with market indicators and understanding how to analyze stocks are crucial for making informed investment decisions. Opening a Demat account is necessary for trading.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h2>Investment Options</h2>
+                        <img src="https://www.investopedia.com/thmb/6PhOzANk5XqxQK4jE59MPMsywUg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/investing.asp-final-9cbfccbd50344a828ddf1882a2fdc07c.png" class="EssentialsImage" alt="Investment Options">
+                        <p>There are various investment options available for students, including fixed deposits, mutual funds, and Public Provident Fund (PPF). Each option has its own risk profile and potential returns. Understanding these options can help students make informed decisions about where to allocate their savings and grow their wealth over time.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h2>Financial Literacy</h2>
+                        <img src="https://www.investopedia.com/thmb/sOOpMcgV2Knyf6DL6R0xbp48wCs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/FinancialLiteracy_Final_4196456-74c34377122d43748ed63ef46a285116.jpg" class="EssentialsImage" alt="Financial Literacy">
+                        <p>Financial literacy is the foundation for making sound financial decisions. Students should seek educational resources such as online courses, workshops, and literature to enhance their understanding of personal finance, investing, and wealth management. This knowledge will empower them to take control of their financial futures.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>Get Started Today!</h2>
+                        <p>Empower yourself with the right financial knowledge and tools for a secure future. The journey to financial literacy begins now!</p>
+                        <img src="https://www.investopedia.com/thmb/qdhVfwbA--UqJHj_kJ5pwv67lnQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/social-welfare-system.asp-final-1461bb2f25c542299f1d417def9215f3.png" class="EssentialsImage" alt="Get Started">
+                    </div>
+                </div>
+
+                <div class="EssentialsFooterSection">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3>Why Financial Education Matters</h3>
+                            <p>In today’s fast-paced world, financial education is crucial for everyone, especially students. It equips them with the knowledge to manage their finances wisely, avoid pitfalls of debt, and make informed investment choices. By understanding financial concepts, students can lay a solid foundation for a prosperous future.</p>
+                            <p>Explore resources like online courses, financial workshops, and educational platforms to boost your financial literacy. Start your journey toward financial empowerment today!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </div>
+    </div>
+    <div id="sectionDebt">
+        <div class="Dept-body">
+            <div class="Dept-container">
+                <h1 class="Dept-heading">Debt Management Calculator</h1>
+                <div class="Dept-input-group">
+                    <label class="Dept-label" for="loanAmount">Loan Amount (₹):</label>
+                    <input class="Dept-input" type="number" id="loanAmount">
+                </div>
+                <div class="Dept-input-group">
+                    <label class="Dept-label" for="interestRate">Annual Interest Rate (%):</label>
+                    <input class="Dept-input" type="number" id="interestRate">
+                </div>
+                <div class="Dept-input-group">
+                    <label class="Dept-label" for="monthlyIncome">Monthly Income (₹):</label>
+                    <input class="Dept-input" type="number" id="monthlyIncome">
+                </div>
+                <div class="Dept-input-group">
+                    <label class="Dept-label" for="monthlyPayment">Monthly Payment (₹):</label>
+                    <input class="Dept-input" type="number" id="monthlyPayment">
+                </div>
+                <button class="Dept-button" onclick="calculateDebt()">Calculate</button>
+                <div id="result" class="Dept-result"></div>
+                <div id="expensesBreakdown" class="Dept-expenses-breakdown"></div>
+                <div id="monthlyBreakdown" class="Dept-monthly-breakdown"></div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="display('sectionMainPage')">Back</button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
+
+
+
+    <script>
+        // Wallet Buddy Basics Pie Chart
+        var ctxBasics = document.getElementById('walletBuddyBasicsChart').getContext('2d');
+        var walletBuddyBasicsChart = new Chart(ctxBasics, {
+            type: 'pie',
+            data: {
+                labels: ['Essentials', 'Savings', 'Wants'],
+                datasets: [{
+                    data: [50, 20, 30],
+                    backgroundColor: ['#007bff', '#28a745', '#dc3545']
+                }]
+            }
+        });
+
+        // Debt Management Pie Chart
+        var ctxDebt = document.getElementById('walletBuddyDebtManagementChart').getContext('2d');
+        var walletBuddyDebtManagementChart = new Chart(ctxDebt, {
+            type: 'pie',
+            data: {
+                labels: ['High-Interest Debt', 'Low-Interest Debt'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#dc3545', '#ffc107']
+                }]
+            }
+        });
+
+        // Credit Management Pie Chart
+        var ctxCredit = document.getElementById('walletBuddyCreditManagementChart').getContext('2d');
+        var walletBuddyCreditManagementChart = new Chart(ctxCredit, {
+            type: 'pie',
+            data: {
+                labels: ['Payment History', 'Credit Utilization', 'Length of Credit History', 'New Credit', 'Credit Mix'],
+                datasets: [{
+                    data: [35, 30, 15, 10, 10],
+                    backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8']
+                }]
+            }
+        });
+
+        // Understanding the Market Pie Chart
+        var ctxMarket = document.getElementById('walletBuddyUnderstandingMarketChart').getContext('2d');
+        var walletBuddyUnderstandingMarketChart = new Chart(ctxMarket, {
+            type: 'pie',
+            data: {
+                labels: ['Bull Market', 'Bear Market'],
+                datasets: [{
+                    data: [60, 40],
+                    backgroundColor: ['#28a745', '#dc3545']
+                }]
+            }
+        });
+
+        // Smart Investing Pie Chart
+        var ctxInvesting = document.getElementById('walletBuddyInvestingChart').getContext('2d');
+        var walletBuddyInvestingChart = new Chart(ctxInvesting, {
+            type: 'pie',
+            data: {
+                labels: ['Stocks', 'Bonds', 'Real Estate', 'Commodities', 'Cash'],
+                datasets: [{
+                    data: [40, 20, 20, 10, 10],
+                    backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8']
+                }]
+            }
+        });
+    </script>
+    <script src="//code.tidio.co/jwkdswj4wkjkbscki1i5mb9cgy5pgsm3.js" async></script>
+    <script type="text/javascript" src="https://new-assets.ccbp.in/frontend/content/static-ccbp-ui-kit/static-ccbp-ui-kit.js"></script>
+</body>
+
+</html>

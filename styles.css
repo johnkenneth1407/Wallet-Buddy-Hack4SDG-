@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+body {
+    background-color: #f7f9fa;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.stock-simulation {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.quick-quiz label {
+    font-weight: normal;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 5px;
+}
+
+ul.list-unstyled li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    /* Adjust the height as needed */
+    margin: 0 auto;
+}
+
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}
+
+.invest-head {
+    font-weight: bold;
+    font-family: "Roboto";
+
+}
+
+/* Main Section Styles */
+.strategy-section {
+    margin-top: 30px;
+}
+
+.strategy-card {
+    margin-bottom: 20px;
+}
+
+/* Detailed Section Styles */
+.strategy-detail-section {
+    background-color: #e9f7ef;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.main-heading {
+    color: white;
+    font-family: "Roboto";
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.fixed-items {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: ;
+}
+
+.Wallet-buddy-basics {
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+
+}
+
+.financial-basics-heading {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+
+}
+
+.para-common {
+    font-size: 15px;
+
+}
+
+.margin-top {
+    margin-top: 100px !important;
+}
+
+
+.dark-bg {
+    background-color: #040526;
+    width: 100vw;
+
+}
+
+
+/* Adjust the size of the charts for different screen sizes */
+@media (max-width: 1200px) {
+    canvas {
+        max-width: 750px;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    canvas {
+        max-width: 250px;
+        height: auto !important;
+
+    }
+}
+
+@media (max-width: 576px) {
+    canvas {
+        max-width: 200px;
+        height: auto !important;
+
+    }
+}
+
+/* Custom CSS to adjust the size of pie charts on large and extra-large devices */
+@media (min-width: 992px) {
+    canvas {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+
+/* Center the pie charts horizontally */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (min-width: 1200px) {
+    canvas {
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
+
+.financial-modules {
+    padding: 20px;
+}
+
+.module-box {
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.2);
+}
+
+.heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: #007bff;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.module-status {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+@media (min-width: 992px) {
+    .heading {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 1.25rem;
+    }
+
+    .module-status {
+        font-size: 0.9rem;
+    }
+}
+
+.logo {
+    width: 40px;
+    height: 35px;
+}
+
+.footer-section-mail-id {
+    color: #959ead;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.mtop {
+    margin-top: 100px;
+}
+
+.footer-section {
+    background-color: #0d2436;
+}
+
+.nav-item {
+    color: black !important;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    /* Center logo and text vertically */
+}
+
+.navbar-title {
+    font-family: "Bee Serif";
+    font-size: 1.5rem;
+    /* Adjust the font size */
+    font-weight: bold;
+    /* Make it bold */
+    margin-left: 10px;
+    /* Space between logo and title */
+    color: #333;
+    /* Color for the title */
+}
+
+
+/* Container styling for a sleek card appearance */
+.savings-section .saving-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.saving-title {
+    text-align: center;
+    color: #5e7d7e;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.saving-label {
+    font-size: 0.9em;
+    color: #5e7d7e;
+    margin-bottom: 6px;
+}
+
+.saving-input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #d8e3e7;
+    font-size: 1em;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+}
+
+.saving-input:focus {
+    border-color: #6fb1c1;
+    outline: none;
+    box-shadow: 0 0 5px rgba(111, 177, 193, 0.2);
+}
+
+/* Button styling for a premium look */
+.saving-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6fb1c1;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.saving-button:hover {
+    background-color: #5a9aa9;
+}
+
+.saving-goal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.saving-goal .saving-label {
+    width: 60%;
+}
+
+.saving-goal .saving-input {
+    width: 35%;
+}
+
+/* Result styling */
+.saving-result {
+    font-weight: 600;
+    color: #4a4a4a;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.saving-total {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    color: #6b8c8d;
+}
+
+.saving-body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #e7f2f8, #fefaf5);
+    color: #4a4a4a;
+
+}
+
+.budget-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.budget-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.budget-input-group {
+    margin-bottom: 15px;
+}
+
+.budget-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.budget-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.budget-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.budget-button:hover {
+    background-color: #138496;
+}
+
+.budget-results {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+}
+
+.budget-suggestion-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.budget-suggestion {
+    white-space: pre-line;
+    /* For displaying new lines */
+    font-size: 16px;
+    color: #333;
+}
+
+.EssentialsBody {
+    background-color: white;
+}
+
+.EssentialsFooterSection {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.EssentialsHeading {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.EssentialsImage {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+/* General body styling with gradient background */
+.Dept-body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Centered container with white, slightly transparent background */
+.Dept-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    /* White with slight transparency */
+    border-radius: 15px;
+    /* Rounded corners */
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for depth */
+    text-align: center;
+}
+
+/* Heading styles */
+.Dept-heading {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Input field styling */
+.Dept-input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.Dept-label {
+    font-size: 1em;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.Dept-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.Dept-button {
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2575fc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.Dept-button:hover {
+    background-color: #6a11cb;
+    /* Button color change on hover */
+}
+
+/* Results and breakdown sections */
+.Dept-result,
+.Dept-expenses-breakdown,
+.Dept-monthly-breakdown {
+    margin-top: 20px;
+    font-size: 1em;
+    text-align: left;
+}
+
+/* Table styling for monthly breakdown */
+.Dept-monthly-breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.Dept-monthly-breakdown-header,
+.Dept-monthly-breakdown-data {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.Dept-monthly-breakdown-header {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Expenses breakdown list styling */
+.Dept-expenses-breakdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Dept-expenses-breakdown-item {
+    margin: 5px 0;
+}
